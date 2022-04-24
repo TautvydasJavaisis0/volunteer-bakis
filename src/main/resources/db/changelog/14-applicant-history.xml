@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="14" author="tautvydas">
+
+<!--    <addColumn tableName="initiative_candidate">-->
+<!--      <column beforeColumn="initiative_id"-->
+<!--              name="id"-->
+<!--              type="BIGINT"-->
+<!--      />-->
+<!--    </addColumn>-->
+
+    <addColumn tableName="initiative_candidate">
+      <column afterColumn="candidate_id"
+              name="status"
+              defaultValue="0"
+              type="BOOLEAN"
+      />
+    </addColumn>
+
+    <addColumn tableName="initiative_candidate">
+      <column afterColumn="status"
+              name="approved_by_owner"
+              defaultValue="0"
+              type="BOOLEAN"
+      />
+    </addColumn>
+
+    <addColumn tableName="user">
+      <column afterColumn="phone"
+              name="rating_count"
+              defaultValue="0"
+              type="BIGINT"
+      />
+    </addColumn>
+
+    <addColumn tableName="user">
+      <column afterColumn="rating_count"
+              name="total_applications"
+              defaultValue="0"
+              type="BIGINT"
+      />
+    </addColumn>
+
+  </changeSet>
+</databaseChangeLog>

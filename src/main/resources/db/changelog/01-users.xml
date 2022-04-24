@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="01" author="milda">
+    <createTable tableName="user">
+      <column  name="id"  type="bigint" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column  name="password"  type="varchar(255)"/>
+      <column  name="username"  type="varchar(255)"/>
+    </createTable>
+    <createTable tableName="role">
+      <column  name="id"  type="bigint" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column  name="name"  type="varchar(255)"/>
+    </createTable>
+    <sql >
+      create table user_role
+      (
+      user_id BIGINT not null,
+      role_id BIGINT not null,
+      constraint USER_FOREIGN_KEY
+      foreign key (user_id) references user (id),
+      constraint ROLE_FOREIGN_KEY
+      foreign key (role_id) references role (id)
+      );
+
+      /* User with password 'password' */
+      INSERT INTO `role` VALUES (1, 'ADMIN');
+      INSERT INTO `user` VALUES (1, '$2a$10$n/mj3823gVUA5wszZfxdGu2jXPjn5giAW9CXi9k1rW3eKKEnz2fKW', 'admin');
+      INSERT INTO `user_role` VALUES (1, 1);
+    </sql>
+  </changeSet>
+</databaseChangeLog>

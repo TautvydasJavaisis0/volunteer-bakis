@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="05" author="simas">
+    <sql >
+      /* Adding additional features */
+      INSERT INTO `feature` VALUES (2, 'lyderystė');
+      INSERT INTO `feature` VALUES (3, 'komunikacija');
+      INSERT INTO `feature` VALUES (4, 'tolerancija');
+      INSERT INTO `feature` VALUES (5, 'solidarumas');
+      INSERT INTO `feature` VALUES (6, 'kūrybiškumas');
+    </sql>
+  </changeSet>
+</databaseChangeLog>

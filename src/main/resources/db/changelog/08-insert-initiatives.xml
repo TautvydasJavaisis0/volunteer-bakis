@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="08" author="tautvydas">
+
+    <modifyDataType  columnName="description"
+                     newDataType="TEXT"
+                     tableName="initiative"/>
+
+    <sql >
+      INSERT INTO `initiative` VALUES (1, '„Spalvotas gyvenimas šeimoms“ kviečia savanoriauti', 'Spalvotas gyvenimas šeimoms“ kviečia savanoriauti
+„Spalvotas gyvenimas šeimoms“ – socialinis projektas, kurio tikslas suteikti pagalbą socialiai pažeidžiamoms šeimoms, kuriose auga mokyklinio amžiaus vaikai. Projektu siekiame šių šeimų namuose atnaujinti / įrengti vaikų mokymosi ir poilsio poreikiams pritaikytas erdves / kambarius. Visos Lietuvos mastu telkiame bendraminčius, partnerius, savanorius tam, kad vaikams sukurtume tinkamas mokymosi ir poilsio sąlygas.', 56, 10, 2, '2021-08-10 09:32:51', '2021-08-20 20:32:51', 1);
+
+      INSERT INTO `initiative` VALUES (2, 'JCI Šiauliai kviečia savanoriauti', 'JCI Šiauliai komanda kviečia savanorius prisidėti prie:
+- "Be Better In English" organizacinės komandos- projektas skirtas gerinti anglų kalbos šnekamuosius įgūdžius.
+- "Spalvotas gyvenimas šeimoms" organizacinės komandos - socialinis projektas, kurio tikslas suteikti pagalbą socialiai pažeidžiamoms šeimoms, kuriose auga mokyklinio amžiaus vaikai.
+- "SPEAKLY" organizacinės komandos - viešojo kalbėjimo, diskusijų moderavimo ir debatavimo mokymai.
+JCI Šiauliai komanda ieško aktyvių ir turinčių idėjų savanorių, kurie norėtų prisijunkit!', 14, 15, 5, '2021-08-15 15:32:51', '2021-08-25 21:32:51', 1);
+      INSERT INTO `initiative` VALUES (3, 'Sporto Savanorių Sąjunga', 'Sporto savanorių sąjunga - nuo 2005 m. veikianti asociacija, kurios nariai savanoriškumo principais padeda organizuoti kultūros ir sporto renginius. Didžiausias mūsų savanorių centras yra Kaune. Taip pat sėkmingai prisidedame prie renginių Vilniuje, Klaipėdoje, Šiauliuose, Panevėžyje, Alytuje ir Elektrėnuose.', 19, 15, 13, '2021-08-20 10:32:51', '2022-10-21 22:32:51', 1);
+      INSERT INTO `initiative` VALUES (4, 'Viešoji įstaiga "Socialinis veiksmas', 'organizacija nuo 2005 metų dirba plėtodama kokybišką savanorystę Lietuvoje ir už jos ribų. Veikiame vietiniu, tarptautiniu mastu, atstovaujame savanorystę instituciniame, socialiniame ir politiniame lygmenyse. Kaip mes dirbame skiltyje skaitykite plačiau.', 1, 5, 2, '2021-08-20 10:32:51', '2022-08-21 22:32:51', 1);
+      INSERT INTO `initiative` VALUES (5, 'SAVANORYSTĖ PROJEKTE "JUDAM"', 'Savanorišką tarnybą projekto metu gali atlikti bet kuris nedirbantis ir nesimokantis 15–29 metų amžiaus jaunuolis. Savanoriškos veiklos trukmė projekte – nuo 1 iki 6 mėn. Jaunuolis įsipareigoja savanoriauti nuo 4 iki 8 val. per dieną, iki 25 val. per savaitę, iki 100 val. per mėnesį. Minimalus valandų skaičius per mėnesį – 80 val.', 30, 10, 2, '2021-08-20 10:32:51', '2022-08-21 22:32:51', 1);
+      INSERT INTO `initiative_features` VALUES (1, 1);
+      INSERT INTO `initiative_features` VALUES (1, 2);
+      INSERT INTO `initiative_features` VALUES (2, 2);
+      INSERT INTO `initiative_features` VALUES (3, 2);
+      INSERT INTO `initiative_features` VALUES (3, 4);
+      INSERT INTO `initiative_features` VALUES (3, 1);
+      INSERT INTO `initiative_features` VALUES (4, 2);
+      INSERT INTO `initiative_features` VALUES (4, 4);
+      INSERT INTO `initiative_features` VALUES (5, 3);
+      INSERT INTO `initiative_features` VALUES (5, 5);
+
+    </sql>
+  </changeSet>
+</databaseChangeLog>

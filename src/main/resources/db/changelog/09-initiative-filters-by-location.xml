@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="09" author="tautvydas">
+    <createTable tableName="districts">
+      <column  name="id"  type="bigint" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column  name="name"  type="varchar(255)"/>
+    </createTable>
+    <renameColumn  columnDataType="varchar(255)"
+                   newColumnName="districts_id"
+                   oldColumnName="location"
+                   tableName="initiative"/>
+
+    <modifyDataType  columnName="districts_id"
+                     newDataType="BIGINT"
+                     tableName="initiative"/>
+
+    <sql >
+      INSERT INTO `districts` VALUES (1, 'Alytaus m. sav.');
+      INSERT INTO `districts` VALUES (2, 'Alytaus raj. sav.');
+      INSERT INTO `districts` VALUES (3, 'Anykščių raj. sav.');
+      INSERT INTO `districts` VALUES (4, 'Birštono sav.');
+      INSERT INTO `districts` VALUES (5, 'Biržų raj. sav.');
+      INSERT INTO `districts` VALUES (6, 'Druskininkų sav.');
+      INSERT INTO `districts` VALUES (7, 'Elektrėnų sav.');
+      INSERT INTO `districts` VALUES (8, 'Ignalinos raj. sav.');
+      INSERT INTO `districts` VALUES (9, 'Jonavos raj. sav.');
+      INSERT INTO `districts` VALUES (10, 'Joniškio raj. sav.');
+      INSERT INTO `districts` VALUES (11, 'Jurbarko raj. sav.');
+      INSERT INTO `districts` VALUES (12, 'Kaišiadorių raj. sav.');
+      INSERT INTO `districts` VALUES (13, 'Kalvarijos sav.');
+      INSERT INTO `districts` VALUES (14, 'Kauno m. sav.');
+      INSERT INTO `districts` VALUES (15, 'Kauno raj. sav.');
+      INSERT INTO `districts` VALUES (16, 'Kazlų Rūdos sav.');
+      INSERT INTO `districts` VALUES (17, 'Kėdainių raj. sav.');
+      INSERT INTO `districts` VALUES (18, 'Kelmės raj. sav.');
+      INSERT INTO `districts` VALUES (19, 'Klaipėdos m. sav.');
+      INSERT INTO `districts` VALUES (20, 'Klaipėdos raj. sav.');
+      INSERT INTO `districts` VALUES (21, 'Kretingos raj. sav.');
+      INSERT INTO `districts` VALUES (22, 'Kupiškio raj. sav.');
+      INSERT INTO `districts` VALUES (23, 'Lazdijų raj. sav.');
+      INSERT INTO `districts` VALUES (24, 'Marijampolės sav.');
+      INSERT INTO `districts` VALUES (25, 'Mažeikių raj. sav.');
+      INSERT INTO `districts` VALUES (26, 'Molėtų raj. sav.');
+      INSERT INTO `districts` VALUES (27, 'Neringos sav.');
+      INSERT INTO `districts` VALUES (28, 'Pagėgių sav.');
+      INSERT INTO `districts` VALUES (29, 'Pakruojo raj. sav.');
+      INSERT INTO `districts` VALUES (30, 'Palangos m. sav.');
+      INSERT INTO `districts` VALUES (31, 'Panevėžio m. sav.');
+      INSERT INTO `districts` VALUES (32, 'Panevėžio raj. sav.');
+      INSERT INTO `districts` VALUES (33, 'Pasvalio raj. sav.');
+      INSERT INTO `districts` VALUES (34, 'Plungės raj. sav.');
+      INSERT INTO `districts` VALUES (35, 'Prienų raj. sav.');
+      INSERT INTO `districts` VALUES (36, 'Radviliškio raj. sav.');
+      INSERT INTO `districts` VALUES (37, 'Raseinių raj. sav.');
+      INSERT INTO `districts` VALUES (38, 'Rietavo sav.');
+      INSERT INTO `districts` VALUES (39, 'Rokiškio raj. sav.');
+      INSERT INTO `districts` VALUES (40, 'Skuodo raj. sav.');
+      INSERT INTO `districts` VALUES (41, 'Šakių raj. sav.');
+      INSERT INTO `districts` VALUES (42, 'Šalčininkų raj. sav.');
+      INSERT INTO `districts` VALUES (43, 'Šiaulių m. sav.');
+      INSERT INTO `districts` VALUES (44, 'Šiaulių raj. sav.');
+      INSERT INTO `districts` VALUES (45, 'Šilalės raj. sav.');
+      INSERT INTO `districts` VALUES (46, 'Šilutės raj. sav.');
+      INSERT INTO `districts` VALUES (47, 'Širvintų raj. sav.');
+      INSERT INTO `districts` VALUES (48, 'Švenčionių raj. sav.');
+      INSERT INTO `districts` VALUES (49, 'Tauragės raj. sav.');
+      INSERT INTO `districts` VALUES (50, 'Telšių raj. sav.');
+      INSERT INTO `districts` VALUES (51, 'Trakų raj. sav.');
+      INSERT INTO `districts` VALUES (52, 'Ukmergės raj. sav.');
+      INSERT INTO `districts` VALUES (53, 'Utenos raj. sav.');
+      INSERT INTO `districts` VALUES (54, 'Varėnos raj. sav.');
+      INSERT INTO `districts` VALUES (55, 'Vilkaviškio raj. sav.');
+      INSERT INTO `districts` VALUES (56, 'Vilniaus m. sav.');
+      INSERT INTO `districts` VALUES (57, 'Vilniaus raj. sav.');
+      INSERT INTO `districts` VALUES (58, 'Visagino sav.');
+      INSERT INTO `districts` VALUES (59, 'Zarasų raj. sav.');
+    </sql>
+  </changeSet>
+</databaseChangeLog>

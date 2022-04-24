@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="03" author="dominyka">
+    <createTable tableName="initiative">
+      <column name="id" type="bigint" autoIncrement="true">
+      <constraints primaryKey="true"/>
+      </column>
+      <column name="title" type="varchar(255)"/>
+      <column name="description" type="varchar(255)"/>
+      <column name="location" type="varchar(255)"/>
+      <column name="total_number_of_volunteers" type="int"/>
+      <column name="current_number_of_volunteers" type="int"/>
+      <column name="start_date" type="varchar(255)"/>
+      <column name="end_date" type="varchar(255)"/>
+      <column name="user_id" type="bigint">
+        <constraints nullable="false" foreignKeyName="fk_initiative_user" references="user(id)"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="feature">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="name" type="varchar(255)"/>
+    </createTable>
+
+    <sql >
+      create table initiative_features
+      (
+        initiative_id BIGINT not null,
+        features_id BIGINT not null,
+        constraint initiative_foreign_key
+          foreign key (initiative_id) references initiative (id),
+        constraint feature_foreign_key
+          foreign key (features_id) references feature (id)
+      );
+
+      /* User with password 'password' */
+      INSERT INTO `feature` VALUES (1, 'pilietiškumas');
+    </sql>
+
+  </changeSet>
+</databaseChangeLog>

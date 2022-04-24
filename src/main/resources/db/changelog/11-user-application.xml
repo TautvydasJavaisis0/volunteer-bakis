@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="11" author="tautvydas">
+    <addColumn tableName="initiative">
+      <column afterColumn="address"
+              name="latitude"
+              type="float"
+      />
+      <column afterColumn="latitude"
+              name="longitude"
+              type="float"
+      />
+    </addColumn>
+    <sql >
+      create table initiative_candidate
+      (
+        id BIGINT not null AUTO_INCREMENT,
+        initiative_id BIGINT not null,
+        candidate_id BIGINT not null,
+        PRIMARY KEY (id),
+        constraint CANDIDATES_INITIATIVE_FOREIGN_KEY
+          foreign key (initiative_id) references initiative (id),
+        constraint CANDIDATES_USER_FOREIGN_KEY
+          foreign key (candidate_id) references user (id)
+      );
+
+      ALTER TABLE initiative_candidate
+      ADD CONSTRAINT init_cand
+        UNIQUE (initiative_id, candidate_id);
+
+      UPDATE initiative
+      SET address = 'Vilnius', latitude= 54.687157, longitude = 25.279652
+      WHERE id = 1;
+
+      UPDATE initiative
+      SET address = 'Kaunas', latitude= 54.896870, longitude = 23.892429
+      WHERE id = 2;
+
+      UPDATE initiative
+      SET address = 'Klaipėda', latitude= 55.710800, longitude = 21.131809
+      WHERE id = 3;
+
+      UPDATE initiative
+      SET address = 'Alytus', latitude= 54.395432, longitude = 24.046780
+      WHERE id = 4;
+
+      UPDATE initiative
+      SET address = 'Palanga', latitude= 55.918339, longitude = 21.067650
+      WHERE id = 5;
+    </sql>
+  </changeSet>
+</databaseChangeLog>
